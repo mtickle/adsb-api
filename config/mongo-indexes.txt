@@ -1,0 +1,11 @@
+db.incidents.createIndex({crimeCode: 1, crimeDescription: 1 , cityOfIncident: 1 , district: 1, incidentID: 1, caseNumber: 1, crimeType: 1 , reportedBlockAddress: 1, reportedDate: 1, reportedYear: 1, reportedMonth:1, reportedDay: 1, reportedHour: 1, reportedDayOfWeek: 1 , latitude: 1, longitude: 1, updatedDate: 1}, { unique: true } )
+db.arrests.createIndex({first: 1, last: 1 , height: 1 , weight: 1, hair: 1, eye: 1, dob: 1 , sex: 1, race: 1, dateArr: 1, charge:1}, { unique: true } )
+db.calls.createIndex({agency: 1, latitude: 1, longitude: 1, incidentType: 1, location: 1, callDate: 1, callTime: 1, emdCode: 1}, { unique: true})
+
+
+
+
+
+
+
+db.flights.createIndex({hex: 1,  ttype:  1,  flight: 1,  alt_baro:1,  alt_geom: 1,  gs: 1,  track: 1,  baro_rate: 1,  squawk: 1,  emergency: 1,  category: 1,  lat: 1,  lon: 1,  nic: 1,  rc: 1,  seen_pos: 1,  r_dst: 1,  r_dir: 1,  version: 1,  nic_baro: 1,  nac_p: 1,  nac_v: 1,  sil: 1,  sil_type: 1,  gva: 1,  sda: 1,  alert: 1,  spi: 1,  mlat: 1,  tisb:1,  messages: 1,  seen:1,  rssi: 1}, { unique: true })
