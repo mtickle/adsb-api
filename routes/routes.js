@@ -53,50 +53,51 @@ router.get("/getAllFlights", auth.checkKey, async (req, res) => {
 });
 
 router.post("/postFlight", auth.checkKey, async (req, res) => {
+
   const data = new flightsModel({
-    hex: req.body.Hex,
-    ttype: req.body.Type,
-    flight: req.body.Flight,
-    alt_baro: req.body.AltBaro,
-    alt_geom: req.body.AltGeom,
-    gs: req.body.Gs,
-    track: req.body.Track,
-    baro_rate: req.body.BaroRate,
-    squawk: req.body.Squawk,
-    emergency: req.body.Emergency,
-    category: req.body.Category,
-    lat: req.body.Lat,
-    lon: req.body.Lon,
-    nic: req.body.Nic,
-    rc: req.body.Rc,
-    seen_pos: req.body.SeenPos,
-    r_dst: req.body.RDst,
-    r_dir: req.body.RDir,
-    version: req.body.Version,
-    nic_baro: req.body.NicBaro,
-    nac_p: req.body.NacP,
-    nac_v: req.body.NacV,
-    sil: req.body.Sil,
-    sil_type: req.body.SilType,
-    gva: req.body.Gva,
-    sda: req.body.Sda,
-    alert: req.body.Alert,
-    spi: req.body.Spi,
-    mlat: req.body.Mlat,
-    tisb: req.body.Tisb,
-    messages: req.body.Messages,
-    seen: req.body.Seen,
-    rssi: req.body.Rssi
+    hex: req.body.hex,
+    ttype: req.body.ttype,
+    flight: req.body.flight,
+    alt_baro: req.body.alt_baro,
+    alt_geom: req.body.alt_geom,
+    gs: req.body.gs,
+    track: req.body.track,
+    baro_rate: req.body.baro_rate,
+    squawk: req.body.squawk,
+    emergency: req.body.emergency,
+    category: req.body.category,
+    lat: req.body.lat,
+    lon: req.body.lon,
+    nic: req.body.nic,
+    rc: req.body.rc,
+    seen_pos: req.body.seen_pos,
+    r_dst: req.body.r_dst,
+    r_dir: req.body.r_dir,
+    version: req.body.version,
+    nic_baro: req.body.nic_baro,
+    nac_p: req.body.nac_p,
+    nac_v: req.body.nac_v,
+    sil: req.body.sil,
+    sil_type: req.body.sil_type,
+    gva: req.body.gva,
+    sda: req.body.sda,
+    alert: req.body.alert,
+    spi: req.body.spi,
+    mlat: req.body.mlat,
+    tisb: req.body.tisb,
+    messages: req.body.messages,
+    seen: req.body.seen,
+    rssi: req.body.rssi
   });
 
   try {
+    
     const dataToSave = await data.save();
     res.status(200).json(dataToSave);
   } catch (error) {
+    console.log(error)
     res.status(400).json({ message: error.message });
   }
 });
-
-
 
 export default router;

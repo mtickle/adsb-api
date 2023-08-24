@@ -7,5 +7,9 @@ db.calls.createIndex({agency: 1, latitude: 1, longitude: 1, incidentType: 1, loc
 
 
 
+cd E:\mongotools\
+./mongosh "mongodb+srv://dbuser:ZDvSgzcc7kCG34IY@cluster0.xbd2tw8.mongodb.net/aircraft"
 
-db.flights.createIndex({hex: 1,  ttype:  1,  flight: 1,  alt_baro:1,  alt_geom: 1,  gs: 1,  track: 1,  baro_rate: 1,  squawk: 1,  emergency: 1,  category: 1,  lat: 1,  lon: 1,  nic: 1,  rc: 1,  seen_pos: 1,  r_dst: 1,  r_dir: 1,  version: 1,  nic_baro: 1,  nac_p: 1,  nac_v: 1,  sil: 1,  sil_type: 1,  gva: 1,  sda: 1,  alert: 1,  spi: 1,  mlat: 1,  tisb:1,  messages: 1,  seen:1,  rssi: 1}, { unique: true })
+
+db.flights.createIndex({hex: 1}, { unique: true })
+
