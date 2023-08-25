@@ -3,6 +3,11 @@ import mongoose,
 
 const flightsSchema = new Schema({
 
+  timestamp: {
+    required: false,
+    type: Date  
+  },
+
   hex: {
     required: false,
     type: String
