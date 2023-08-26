@@ -5,6 +5,7 @@
 //--- Models
 import { usersModel } from "../models/users.js";
 import { flightsModel } from "../models/flights.js"
+import { flightsViewModel } from "../models/flights-view.js";
 
 //--- Helpers
 import auth from "../middlewares/auth.js";
@@ -45,7 +46,7 @@ router.get("/getAllFlights", auth.checkKey, async (req, res) => {
   const recordLimit = req.query.limit || 10
 
   try {
-    const data = await flightsModel.find().limit(recordLimit).sort({ dateArr: -1, timeArr: -1 });
+    const data = await flightsViewModel.find().limit(recordLimit).sort({ dateArr: -1, timeArr: -1 });
     res.json(data);
   } catch (error) {
     res.status(500).json({ message: error.message });
