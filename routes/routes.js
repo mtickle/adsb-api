@@ -5,7 +5,6 @@
 //--- Models
 import { usersModel } from "../models/users.js";
 import { flightsModel } from "../models/flights.js"
-import { flightsViewModel } from "../models/flights-view.js";
 
 //--- Helpers
 import auth from "../middlewares/auth.js";
@@ -57,8 +56,8 @@ router.post("/postFlight", auth.checkKey, async (req, res) => {
 
   const data = new flightsModel({
     timestamp: Date.now(),
-    hex: req.body.hex,
-    ttype: req.body.ttype,
+    hex_code: req.body.hex_code,
+    type_code: req.body.type_code,
     flight: req.body.flight,
     alt_baro: req.body.alt_baro,
     alt_geom: req.body.alt_geom,
@@ -93,8 +92,8 @@ router.post("/postFlight", auth.checkKey, async (req, res) => {
   });
 
   try {
-    
     const dataToSave = await data.save();
+    console.log(dataToSave)
     res.status(200).json(dataToSave);
   } catch (error) {
     console.log(error)

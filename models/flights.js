@@ -8,12 +8,12 @@ const flightsSchema = new Schema({
     type: Date  
   },
 
-  hex: {
+  hex_code: {
     required: false,
     type: String
   },
 
-  ttype: {
+  type_code: {
     required: false,
     type: String
   },
