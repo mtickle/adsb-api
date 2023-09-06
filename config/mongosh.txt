@@ -1,0 +1,11 @@
+cd E:\mongotools\
+./mongosh "mongodb+srv://dbuser:ZDvSgzcc7kCG34IY@cluster0.xbd2tw8.mongodb.net/adsb"
+
+
+db.flights.createIndex({hex_code: 1, timestamp: 1}, { unique: true})
+
+
+./mongoimport --uri mongodb+srv://dbuser:ZDvSgzcc7kCG34IY@cluster0.xbd2tw8.mongodb.net/adsb --collection master --type csv --file E:\Repos\patrolx-config-items\csv\MASTER.txt --headerline
+
+./mongoimport --uri mongodb+srv://dbuser:ZDvSgzcc7kCG34IY@cluster0.xbd2tw8.mongodb.net/adsb --collection reference --type csv --file E:\Repos\patrolx-config-items\csv\ACFTREF.txt --headerline
+
