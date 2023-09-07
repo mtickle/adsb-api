@@ -1,11 +1,12 @@
 //--- Notes
-//---- 9YGxIQziMuYzgMSWmYePfxRWYdeiwLKn is a good API Key
+//---- 8aBTsqrZuPRWRbV6tnoDI4pZ6HA5570r is a good API Key
 //--- http://localhost:3001/api/getAllCalls?limit=1
 
 //--- Models
 import { usersModel } from "../models/users.js";
 import { flightsModel } from "../models/flights.js"
 import { flightViewModel } from "../models/flightView.js";
+import { distinctflightsModel } from "../models/distinctflights.js";
 
 //--- Helpers
 import auth from "../middlewares/auth.js";
@@ -35,6 +36,19 @@ router.get("/getAllUsers", auth.checkKey, async (req, res) => {
 
   try {
     const data = await usersModel.find().limit(recordLimit);
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.get("/getAllDistinctFlights", auth.checkKey, async (req, res) => {
+
+  //--- Get the record limit from the querystring
+  const recordLimit = req.query.limit || 10
+
+  try {
+    const data = await distinctflightsModel.find().limit(recordLimit);
     res.json(data);
   } catch (error) {
     res.status(500).json({ message: error.message });

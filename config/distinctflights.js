@@ -6,7 +6,7 @@ db.createView("distinctflights", "flights",
 [
     {
         $match: {
-            flight: {
+            flight_code: {
                 $exists: true,
                 $nin: [null, "None", "", '""'],
             },
@@ -14,7 +14,7 @@ db.createView("distinctflights", "flights",
     },
     {
         $group: {
-            _id: "$flight",
+            _id: "$flight_code",
             FlightCount: {
                 $count: {},
             },
@@ -26,6 +26,6 @@ db.createView("distinctflights", "flights",
         },
     },
     // {
-    //     $out: "distinctflight",
+    //     $out: "distinctflights",
     // },
 ])
