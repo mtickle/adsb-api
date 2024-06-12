@@ -1,4 +1,4 @@
-db.flightviews.drop()
+
 db.pastflights.drop()
 
 db.createView("pastflights", "flights",
@@ -15,6 +15,7 @@ db.createView("pastflights", "flights",
     {
       $project: {
         _id: 0,
+        timestamp: 1,
         flight_time: 1,
         flight_date: 1,
         lat: 1,

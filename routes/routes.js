@@ -59,7 +59,7 @@ router.get("/getAllFlightViews", auth.checkKey, async (req, res) => {
 
   const recordLimit = req.query.limit || 10
 
-console.log(req)
+console.log("req")
 
   try {
     const data = await flightViewModel.find().limit(recordLimit);
