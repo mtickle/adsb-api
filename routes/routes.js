@@ -84,7 +84,7 @@ router.get("/getAllFlights", auth.checkKey, async (req, res) => {
 router.post("/postFlight", auth.checkKey, async (req, res) => {
 
   const data = new flightsModel({
-    timestamp: Date.now(),
+    flight_time: req.body.flight_time,
     hex_code: req.body.hex_code,
     type_code: req.body.type_code,
     flight_code: req.body.flight_code,
