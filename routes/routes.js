@@ -85,6 +85,7 @@ router.post("/postFlight", auth.checkKey, async (req, res) => {
 
   const data = new flightsModel({
     flight_time: req.body.flight_time,
+    flight: req.body.flight,
     hex_code: req.body.hex_code,
     type_code: req.body.type_code,
     flight_code: req.body.flight_code,

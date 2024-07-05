@@ -7,7 +7,10 @@ const flightsSchema = new Schema({
     required: false,
     type: String
 },
-
+flight: {
+  required: false,
+  type: String
+},
   hex_code: {
     required: false,
     type: String
