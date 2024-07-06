@@ -48,5 +48,5 @@ app.use('/api', routes)
 
 //--- Open the SERVER
 app.listen(8080, () => {
-	console.log(`API listening on ${8081}`)
+	console.log(`API listening on ${8080}`)
 })
