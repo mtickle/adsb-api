@@ -23,6 +23,7 @@ const limiter = rateLimit({
 const mongoString = process.env.DATABASE_URL;
 mongoose.set('strictQuery', true);
 mongoose.connect(mongoString, function (err) {
+	console.log(err)
 	if (err) throw err;
 });
 
@@ -45,6 +46,8 @@ app.use(morgan('common', {
 //--- Name and implement the ROUTES
 import routes from './routes/routes.js';
 app.use('/api', routes)
+
+
 
 //--- Open the SERVER
 app.listen(8080, () => {

@@ -7,12 +7,17 @@ import { usersModel } from "../models/users.js";
 import { flightsModel } from "../models/flights.js"
 import { flightViewModel } from "../models/flightView.js";
 import { distinctflightsModel } from "../models/distinctflights.js";
+import { aircraftsModel } from "../models/aircrafts.js";
+
+
 
 //--- Helpers
 import auth from "../middlewares/auth.js";
 import { Router } from "express";
 const router = Router();
 import randomstring from "randomstring";
+
+
 
 //--- USERS
 router.post("/postUser", async (req, res) => {
@@ -28,6 +33,15 @@ router.post("/postUser", async (req, res) => {
     res.status(400).json({ message: error.message });
   }
 });
+
+router.get("/getaircrafts/:_id", auth.checkKey,async (req, res) => {
+  try {
+    const data = await aircraftsModel.findById(req.params.mode_s_code_hex);
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+  });
 
 router.get("/getAllUsers", auth.checkKey, async (req, res) => {
 
