@@ -34,9 +34,9 @@ router.post("/postUser", async (req, res) => {
   }
 });
 
-router.get("/getaircrafts/:_id", auth.checkKey,async (req, res) => {
+router.get("/getaircrafts/:icao24", auth.checkKey,async (req, res) => {
   try {
-    const data = await aircraftsModel.findById(req.params.mode_s_code_hex);
+    const data = await aircraftsModel.findById(req.params.icao24);
     res.json(data);
   } catch (error) {
     res.status(500).json({ message: error.message });

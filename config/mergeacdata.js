@@ -1,5 +1,11 @@
-[
 
+
+
+
+
+
+
+db.movies.aggregate([
    {
       $lookup: {
         from: "aircraftManufacturer",
@@ -26,4 +32,4 @@
        {
          $out: "aircrafts",
      },
-]
+])

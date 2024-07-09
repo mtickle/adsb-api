@@ -1,34 +1,87 @@
 import mongoose, { Schema } from "mongoose";
 
 const aircraftsSchema = new Schema({
-  n_number: {
+  icao24 : {
     required: true,
     type: String,
   },
-  mfr_mdl_code: {
+  timestamp : {
     required: true,
     type: String,
   },
-  year: {
+  acars: {
     required: true,
     type: String,
   },
-  owner_name: {
+  adsb: {
     required: true,
     type: String,
   },
-  mode_s_code_hex: {
+  built: {
     required: true,
     type: String,
   },
-  mfr: {
+  country : {
     required: true,
     type: String,
   },
-  model: {
+  engines : {
     required: true,
     type: String,
   },
+  icaoAircraftClass : {
+    required: true,
+    type: String,
+  },
+  manufacturerIcao : {
+    required: true,
+    type: String,
+  },
+  manufacturerName : {
+    required: true,
+    type: String,
+  },
+  model : {
+    required: true,
+    type: String,
+  },
+  modes : {
+    required: true,
+    type: String,
+  },
+  operatorCallsign : {
+    required: true,
+    type: String,
+  },
+  operatorIcao : {
+    required: true,
+    type: String,
+  },
+  owner : {
+    required: true,
+    type: String,
+  },
+  regUntil : {
+    required: true,
+    type: String,
+  },
+  registration : {
+    required: true,
+    type: String,
+  },
+  serialNumber : {
+    required: true,
+    type: String,
+  },
+  typecode : {
+    required: true,
+    type: String,
+  },
+  vdl: {
+    required: true,
+    type: String,
+  },
+
 
 });
 

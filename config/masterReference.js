@@ -6,10 +6,10 @@ db.createView("masterReference", "master",
 [
     {
       $lookup: {
-        from: "reference",
+        from: "aircraftManufacturer",
         localField: "mfr_mdl_code",
         foreignField: "code",
-        as: "referenceMaster",
+        as: "ref",
       },
     },
     {
@@ -20,8 +20,8 @@ db.createView("masterReference", "master",
         mfr_mdl_code: 1,
         year_mfr: 1,
         name: 1,
-        mfr: "$referenceMaster.mfr",
-        model: "$referenceMaster.model",
+        mfr: "$ref.mfr",
+        model: "$ref.model",
       },
     },
     {
