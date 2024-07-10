@@ -1,0 +1,3 @@
+http://192.168.86.58:8080/api/getaircrafts/a126ed
+
+8aBTsqrZuPRWRbV6tnoDI4pZ6HA5570r
