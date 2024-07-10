@@ -23,7 +23,6 @@ const limiter = rateLimit({
 const mongoString = process.env.DATABASE_URL;
 mongoose.set('strictQuery', true);
 mongoose.connect(mongoString, function (err) {
-	console.log(err)
 	if (err) throw err;
 });
 

@@ -36,12 +36,10 @@ router.post("/postUser", async (req, res) => {
 
 router.get("/getaircrafts/:icao24", auth.checkKey,async (req, res) => {
 
-  console.log(req.params.icao24)
-
   try {
     //const data = await aircraftsModel.findById(req.params.icao24);
     const data = await aircraftsModel.find({ icao24: req.params.icao24});
-    res.json(data);
+    res.json(data[0]);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -76,8 +74,6 @@ router.get("/getAllDistinctFlights", auth.checkKey, async (req, res) => {
 router.get("/getAllFlightViews", auth.checkKey, async (req, res) => {
 
   const recordLimit = req.query.limit || 10
-
-console.log("req")
 
   try {
     const data = await flightViewModel.find().limit(recordLimit);

@@ -1,7 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
 const aircraftsSchema = new Schema({
-  
   icao24 : {
     required: true,
     type: String,
