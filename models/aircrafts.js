@@ -1,38 +1,35 @@
 import mongoose, { Schema } from "mongoose";
 
 const aircraftsSchema = new Schema({
- 
-  //wow this is WRONG
-
-
   n_number: {
     required: true,
     type: String,
   },
-  mfr_mdl_code: {
+  owner : {
     required: true,
     type: String,
   },
-  year: {
+  regUntil : {
     required: true,
     type: String,
   },
-  owner_name: {
+  registration : {
     required: true,
     type: String,
   },
-  mode_s_code_hex: {
+  serialNumber : {
     required: true,
     type: String,
   },
-  mfr: {
+  typecode : {
     required: true,
     type: String,
   },
-  model: {
+  vdl: {
     required: true,
     type: String,
   },
+
 
 });
 
