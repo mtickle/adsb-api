@@ -1,6 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 
 const aircraftsSchema = new Schema({
+ 
+  //wow this is WRONG
+
+
   n_number: {
     required: true,
     type: String,
