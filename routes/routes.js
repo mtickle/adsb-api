@@ -8,6 +8,7 @@ import { flightsModel } from "../models/flights.js"
 import { flightViewModel } from "../models/flightView.js";
 import { distinctflightsModel } from "../models/distinctflights.js";
 import { aircraftsModel } from "../models/aircrafts.js";
+import { uniqueflightsModel } from "../models/uniqueflights.js";
 
 
 
@@ -77,6 +78,18 @@ router.get("/getAllFlightViews", auth.checkKey, async (req, res) => {
 
   try {
     const data = await flightViewModel.find().limit(recordLimit);
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.get("/getAllUniqueFlights", auth.checkKey, async (req, res) => {
+
+  const recordLimit = req.query.limit || 100
+
+  try {
+    const data = await uniqueflightsModel.find().limit(recordLimit).sort({ FlightCount: -1 });
     res.json(data);
   } catch (error) {
     res.status(500).json({ message: error.message });
