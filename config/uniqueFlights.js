@@ -40,3 +40,8 @@
     $out: "uniqueFlights"
   }
 ]
+
+
+find military:
+{registration : /2.*-.*/}
+{registration : /1.*-.*/}
