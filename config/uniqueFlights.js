@@ -22,6 +22,9 @@
       registration: {
         $last: "$registration"
       },
+      category: {
+        $last: "$category"
+      },
       manufacturerName: {
         $last: "$manufacturerName"
       },
