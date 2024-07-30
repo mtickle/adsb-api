@@ -1,0 +1,49 @@
+
+aircraftData
+--------------------
+
+Find:
+
+{mode_s_code_hex: "A44BB3"}  (must be upper)
+
+Results: 
+
+{
+  "_id": {
+    "$oid": "64f096af1aa1538ffe584e13"
+  },
+  "n_number": "376SP",
+  "serial_number": "172S9508",
+  "mfr_mdl_code": "2072439",
+  "eng_mfr_mdl": "41597",
+  "year_mfr": 2003,
+  "name": "TOTAL FLIGHT AIRCRAFT LEASING LLC",
+  "unique_id": 60769,
+  "mode_s_code_hex": "A44BB3"
+}
+
+aircaftManufactuer
+--------------------------
+Find: 
+
+{code : "2072439"}
+
+Results
+
+{
+  "_id": {
+    "$oid": "64f098051aa1538ffe5dd183"
+  },
+  "code": "2072439",
+  "mfr": "CESSNA",
+  "model": "172S"
+}
+
+
+
+RUN
+
+Atlas atlas-12svv2-shard-0 [primary] adsb> load("merge.js")
+true
+Atlas atlas-12svv2-shard-0 [primary] adsb> my_aggregate()
+
