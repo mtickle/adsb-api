@@ -17,6 +17,10 @@ const uniqueflightsSchema = new Schema({
     required: true,
     type: String,
   },
+  category: {
+    required: true,
+    type: String,
+  },
   registration: {
     required: true,
     type: String,

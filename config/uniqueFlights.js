@@ -40,7 +40,7 @@
     }
   },
   {
-    $out: "uniqueFlights"
+    $out: "uniqueflights"
   }
 ]
 

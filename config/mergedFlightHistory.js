@@ -32,6 +32,6 @@
       },
     },
    {
-         $out: "mergedFlightHistory",
+         $out: "mergedflighthistory",
      },
 ]
