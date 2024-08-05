@@ -7,7 +7,7 @@ import { usersModel } from "../models/users.js";
 import { flightsModel } from "../models/flights.js"
 import { flightViewModel } from "../models/flightView.js";
 import { distinctflightsModel } from "../models/distinctflights.js";
-import { aircraftsModel } from "../models/aircrafts.js";
+import { aircraftModel } from "../models/aircraft.js";
 import { uniqueflightsModel } from "../models/uniqueflights.js";
 
 
@@ -35,12 +35,14 @@ router.post("/postUser", async (req, res) => {
   }
 });
 
-router.get("/getaircrafts/:icao24", auth.checkKey,async (req, res) => {
+router.get("/getOneAircraft/:icao24", auth.checkKey,async (req, res) => {
 
   try {
     //const data = await aircraftsModel.findById(req.params.icao24);
-    const data = await aircraftsModel.find({ icao24: req.params.icao24});
+    const data = await aircraftModel.find({ icao24: req.params.icao24});
+    
     res.json(data[0]);
+    console.log(res)
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
