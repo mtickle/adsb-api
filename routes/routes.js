@@ -7,7 +7,6 @@ import { usersModel } from "../models/users.js";
 import { flightsModel } from "../models/flights.js"
 import { flightViewModel } from "../models/flightView.js";
 import { distinctflightsModel } from "../models/distinctflights.js";
-import { aircraftModel } from "../models/aircraft.js";
 import { uniqueflightsModel } from "../models/uniqueflights.js";
 
 
@@ -35,18 +34,34 @@ router.post("/postUser", async (req, res) => {
   }
 });
 
-router.get("/getOneAircraft/:icao24", auth.checkKey,async (req, res) => {
+router.get("/getUniqueAircraft/:icao24", auth.checkKey,async (req, res) => {
 
   try {
     //const data = await aircraftsModel.findById(req.params.icao24);
-    const data = await aircraftModel.find({ icao24: req.params.icao24});
-    
+    const data = await uniqueflightsModel.find({ HexCode: req.params.icao24});
+    console.log(req.params.icao24)
     res.json(data[0]);
-    console.log(res)
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
   });
+
+
+  router.get("/getAllUniqueAircraft", auth.checkKey, async (req, res) => {
+
+    //--- Get the record limit from the querystring
+    const recordLimit = req.query.limit || 10
+  
+    try {
+      const data = await uniqueflightsModel.find().limit(recordLimit).sort({ FlightCount: -1 });
+      res.json(data);
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  });
+
+
 
 router.get("/getAllUsers", auth.checkKey, async (req, res) => {
 
@@ -86,17 +101,7 @@ router.get("/getAllFlightViews", auth.checkKey, async (req, res) => {
   }
 });
 
-router.get("/getAllUniqueFlights", auth.checkKey, async (req, res) => {
 
-  const recordLimit = req.query.limit || 100
-
-  try {
-    const data = await uniqueflightsModel.find().limit(recordLimit).sort({ FlightCount: -1 });
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
-});
 
 router.get("/getAllFlights", auth.checkKey, async (req, res) => {
 
